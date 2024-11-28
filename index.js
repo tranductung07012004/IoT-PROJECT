@@ -28,6 +28,12 @@ app.get('/register', (req, res) => {
   res.render('register');
 })
 
+app.get('/controllPanel', (req, res) => {
+  res.render('controllPanel');
+});
+
+
+
 app.listen(PORT, HOST, () => {
   console.log(`Listening on http://${HOST}:${PORT}`);
 });
