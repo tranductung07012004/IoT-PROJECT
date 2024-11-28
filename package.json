@@ -1,0 +1,19 @@
+{
+  "name": "source",
+  "version": "1.0.0",
+  "description": "IoT project",
+  "main": "index.js",
+  "scripts": {
+    "start": "nodemon index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "tdtung",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.21.1",
+    "express-handlebars": "^8.0.1"
+  },
+  "devDependencies": {
+    "tailwindcss": "^3.4.15"
+  }
+}
