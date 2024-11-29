@@ -1,36 +1,44 @@
 <div class="container flex-col flex items-center justify-center">
-  <div class="menu-panel flex flex-row items-center justify-between text-center bg-[rgb(243,245,247)] mt-[1rem] w-[90%] h-[3rem] relative">
-  <img src="/img/menu-svgrepo-com.svg" alt="Logo menu" class="ml-[1rem] w-[1rem] h-[1rem] cursor-pointer" id="menuIcon">
-  
-  <span class="flex-1 text-center">Control Panel</span>
 
-<!-- Menu để đi đến các trang khác -->
-  <div class="menu hidden absolute top-[3rem] left-0 bg-white shadow-lg rounded-md p-4" id="menu">
-    <ul class="space-y-2">
-      <li><a href="#" class="block text-black hover:text-blue-500">Controll panel</a></li>
-      <li><a href="#" class="block text-black hover:text-blue-500">Activity log</a></li>
-    </ul>
-  </div>
-</div>
+{{> menu}}
 
 <!-- Hàng đầu tiên chứa các panel con gồm cảm biến temperature and humidity, photoresister, gas sensor-->
   <div class="first-row mt-[1rem] flex flex-row w-[90%]">
-  <div class="tempHumid flex-1 w-full h-[13rem] bg-[rgb(203,75,75)] mx-[0.5rem]">
+  <div class="tempHumid flex-1 w-full h-[13rem] bg-[rgb(202,212,198)] mx-[0.5rem]">
     <!-- Nội dung của cảm biến temperature and humidity -->
     <div class="title mt-[0.5rem] font-[600] text-center">
       <span>Temperature and humidity</span>
     </div>
+
+    <div class="internal-parameters mt-[1rem] flex flex-col items-center justify-center">
+      <div class="temperature flex flex-row justify-between bg-[rgb(243,245,247)] w-[15rem] h-[3rem]">
+        <div>Temparature</div>
+        <div>32.3 C</div>
+      </div>
+      <div class="humidity flex flex-row justify-between mt-[0.5rem] bg-[rgb(243,245,247)] w-[15rem] h-[3rem]" >
+        <div>Humidity</div>
+        <div>60%</div>
+      </div>
+    </div>
+    
   </div>
-  <div class="photoresistor flex-1 w-full h-[13rem] bg-[rgb(203,75,75)] mx-[0.5rem]">
+
+  <div class="photoresistor flex-1 w-full h-[13rem] bg-[rgb(202,212,198)] mx-[0.5rem]">
     <!-- Nội dung của cảm biến photoresistor -->
     <div class="title mt-[0.5rem] font-[600] text-center">
       <span>Photoresistor sensor</span>
     </div>
+    <div class="h-[11rem] w-[20rem]">
+      <canvas id="photoresistor-chart"></canvas>
+    </div> 
   </div>
-  <div class="gasSensor flex-1 w-full h-[13rem] bg-[rgb(203,75,75)] mx-[0.5rem]">
+  <div class="gasSensor flex-1 w-full h-[13rem] bg-[rgb(202,212,198)] mx-[0.5rem]">
     <!-- Nội dung của cảm biến gas sensor -->
     <div class="title mt-[0.5rem] font-[600] text-center">
       <span>Gas sensor</span>
+    </div>
+    <div class="h-[11rem] w-[20rem]">
+      <canvas id="gasSensor-chart"></canvas>
     </div>  
   </div>
 </div>
@@ -38,7 +46,7 @@
 
 <!-- Hàng thứ hai chứa các panel con gồm bật tắt led, light, buzzer -->
   <div class="second-row mt-[1rem] flex flex-row w-[90%]">
-  <div class="led flex-1 w-full h-[7rem] bg-[rgb(203,75,75)] mx-[0.5rem]">
+  <div class="led flex-1 w-full h-[7rem] bg-[rgb(202,212,198)] mx-[0.5rem]">
     <div class="title mt-[0.5rem] font-[600] text-center">
       <span>Led</span>
     </div>
@@ -51,7 +59,7 @@
 
   </div>
 
-  <div class="light flex-1 w-full h-[7rem] bg-[rgb(203,75,75)] mx-[0.5rem]">
+  <div class="light flex-1 w-full h-[7rem] bg-[rgb(202,212,198)] mx-[0.5rem]">
     <div class="title mt-[0.5rem] font-[600] text-center">
       <span>Light</span>
     </div>
@@ -63,7 +71,7 @@
 
   </div>
 
-  <div class="buzzer flex-1 w-full h-[7rem] bg-[rgb(203,75,75)] mx-[0.5rem]">
+  <div class="buzzer flex-1 w-full h-[7rem] bg-[rgb(202,212,198)] mx-[0.5rem]">
     <div class="title mt-[0.5rem] font-[600] text-center">
       <span>Buzzer</span>
     </div>
@@ -78,13 +86,16 @@
 
 <!-- Hàng thứ 3 chứa các panel con gồm vibration sensor, vehicle in, vehicle out -->
   <div class="third-row mt-[1rem] flex flex-row w-[90%]">
-  <div class="vibration flex-1 w-full h-[16rem] bg-[rgb(203,75,75)] mx-[0.5rem]">
+  <div class="vibration flex-1 w-full h-[16rem] bg-[rgb(202,212,198)] mx-[0.5rem]">
     <div class="title mt-[0.5rem] font-[600] text-center">
       <span>Vibration sensor</span>
     </div>
+    <div class="h-[12rem] w-[23rem]">
+      <canvas id="vibration-chart"></canvas>
+    </div> 
     
   </div>
-  <div class="vehicle-in flex-1 w-full h-[16rem] bg-[rgb(203,75,75)] mx-[0.5rem]">
+  <div class="vehicle-in flex-1 w-full h-[16rem] bg-[rgb(202,212,198)] mx-[0.5rem]">
     <div class="title mt-[0.5rem] font-[600] text-center">
       <span>Vehicle in</span>
     </div>
@@ -98,7 +109,7 @@
       </div>
   </div>
   </div>
-  <div class="vehicle-out flex-1 w-full h-[16rem] bg-[rgb(203,75,75)] mx-[0.5rem]">
+  <div class="vehicle-out flex-1 w-full h-[16rem] bg-[rgb(202,212,198)] mx-[0.5rem]">
     <div class="title mt-[0.5rem] font-[600] text-center">
       <span>Vehicle out</span>
     </div>
@@ -115,4 +126,5 @@
 </div>
 </div>
 
+  <script src="./js/controllPanel.js"></script>
 

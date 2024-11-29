@@ -29,9 +29,14 @@ app.get('/register', (req, res) => {
 })
 
 app.get('/controllPanel', (req, res) => {
+  res.locals.pageTitle = 'Controll Panel';
   res.render('controllPanel');
 });
 
+app.get('/activityLog', (req, res) => {
+  res.locals.pageTitle = 'Activity Log';
+  res.render('activityLog');
+});
 
 
 app.listen(PORT, HOST, () => {
