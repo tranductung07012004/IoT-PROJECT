@@ -1,5 +1,76 @@
-
-
-<div class="container flex-col flex items-center justify-center">
+<div class="container flex flex-col items-center justify-center">
   {{> menu}}
+  <div class="main-content mt-[2rem] flex flex-row w-[90%] h-[90%] max-h-[500px]">
+    <div class="activity-history bg-[rgb(105,230,113)] flex-1 max-h-[500px]">
+      <div class="name-panel text-center font-[600]">
+        <span>Activity History</span>
+      </div>
+
+      <div class="log-panel mt-[0.5rem] bg-[rgb(243,245,247)] max-h-[450px] overflow-auto">
+        <ul>
+          <li>11/11/2024, 8:23 High temperature - buzzer on, led on </li>
+          <li>11/11/2024, 9:23 High vibration - buzzer on, led on</li>
+          <li>11/11/2024, 9:23 vehicle in - id: 1274234</li>
+          <li>11/11/2024, 10:23 vehicle out - id: 1274234</li>
+          <li>11/11/2024, 8:23 High temperature - buzzer on, led on </li>
+          <li>11/11/2024, 9:23 High vibration - buzzer on, led on</li>
+          <li>11/11/2024, 9:23 vehicle in - id: 1274234</li>
+          <li>11/11/2024, 10:23 vehicle out - id: 1274234</li>
+          <li>11/11/2024, 8:23 High temperature - buzzer on, led on </li>
+          <li>11/11/2024, 9:23 High vibration - buzzer on, led on</li>
+          <li>11/11/2024, 9:23 vehicle in - id: 1274234</li>
+          <li>11/11/2024, 10:23 vehicle out - id: 1274234</li>
+          <li>11/11/2024, 8:23 High temperature - buzzer on, led on </li>
+          <li>11/11/2024, 9:23 High vibration - buzzer on, led on</li>
+          <li>11/11/2024, 9:23 vehicle in - id: 1274234</li>
+          <li>11/11/2024, 10:23 vehicle out - id: 1274234</li>
+          <li>11/11/2024, 8:23 High temperature - buzzer on, led on </li>
+          <li>11/11/2024, 9:23 High vibration - buzzer on, led on</li>
+          <li>11/11/2024, 9:23 vehicle in - id: 1274234</li>
+          <li>11/11/2024, 10:23 vehicle out - id: 1274234</li>
+          <li>11/11/2024, 8:23 High temperature - buzzer on, led on </li>
+          <li>11/11/2024, 9:23 High vibration - buzzer on, led on</li>
+          <li>11/11/2024, 9:23 vehicle in - id: 1274234</li>
+          <li>11/11/2024, 10:23 vehicle out - id: 1274234</li>
+          <li>11/11/2024, 8:23 High temperature - buzzer on, led on </li>
+          <li>11/11/2024, 9:23 High vibration - buzzer on, led on</li>
+          <li>11/11/2024, 9:23 vehicle in - id: 1274234</li>
+          <li>11/11/2024, 10:23 vehicle out - id: 1274234</li>
+          <li>11/11/2024, 8:23 High temperature - buzzer on, led on </li>
+          <li>11/11/2024, 9:23 High vibration - buzzer on, led on</li>
+          <li>11/11/2024, 9:23 vehicle in - id: 1274234</li>
+          <li>11/11/2024, 10:23 vehicle out - id: 1274234</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="staff-information ml-[0.5rem] bg-[rgb(73,84,183)] flex-1 max-h-[500px]">
+      <div class="name-panel text-center font-[600]">
+        <span>Staff</span>
+      </div>
+      <div class="staff-panel mx-[0.5rem] mt-[0.5rem] bg-[rgb(243,245,247)] max-h-[450px]">
+        <ul class="ml-[0.5rem]">
+          <li>Tên: Nguyễn Văn A</li>
+          <li>Vào ca vào lúc: 7:09 10/11/2024</li>
+          <li>Kết ca vào lúc: 12:09 11/11/2024</li>
+        </ul>
+      </div>
+
+      <form class="form-report mx-[0.5rem] mt-[5rem] bg-[rgb(243,245,247)] h-[10rem] rounded-lg shadow-md">
+          <div class="introduction-form mx-[0.5rem]">
+            Gửi thông tin (Nếu có chuyện gì bất thường xảy ra)
+          </div>
+          <div class="mt-[0.5rem] mx-[0.5rem]">
+            <input type="text" id="info" name="info" placeholder="Nhập thông tin..." class="w-full h-[4rem] p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500">
+          </div>
+        <div class="mx-[0.5rem] mt-[1rem] flex justify-end">
+          <button type="submit" class="px-4 py-2 bg-blue-500 text-white font-bold rounded-lg cursor-pointer hover:bg-blue-600">
+            Send
+          </button>
+        </div>
+      </form>
+
+
+    </div>
+  </div>
 </div>
