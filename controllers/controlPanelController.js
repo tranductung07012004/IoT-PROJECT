@@ -190,8 +190,69 @@ const getLatestLicensePlate = async (req, res) => {
   }
 };
 
+const getSensorData = async (req, res) => {
+  try {
+    const db = admin.database();
+    const ref = db.ref('sensorData'); // Tham chiếu đến node `sensorData`
+
+    // Đọc dữ liệu từ Firebase
+    ref.once('value', (snapshot) => {
+      const data = snapshot.val();
+
+      if (!data) {
+        return res.status(404).json({ message: 'No sensor data found.' });
+      }
+
+      // Dữ liệu có thể trả về bao gồm cả thời gian (key)
+      const result = Object.entries(data).map(([time, values]) => ({
+        time,
+        ...values,
+      }));
+
+      const latestRecords = result.slice(-6);
+
+      const {humidity, temperature} = latestRecords[latestRecords.length - 1];
+
+      // Mảng con 1: chỉ chứa `time` và `light`
+      const lightArray = latestRecords.map(({ time, light }) => ({
+        time,
+        light,
+      }));
+
+      // Mảng con 2: chỉ chứa `time` và `mq2`
+      const mq2Array = latestRecords.map(({ time, mq2 }) => ({
+        time,
+        mq2,
+      }));
+
+      // Mảng con 3: chỉ chứa `time` và `vibration`
+      const vibrationArray = latestRecords.map(({ time, vibration }) => ({
+        time,
+        vibration,
+      }));
+
+      // Gom ba mảng thành một object
+      const responseObject = {
+        photoresistor: lightArray,
+        gasSensor: mq2Array,
+        vibrationSensor: vibrationArray,
+        humid: humidity,
+        temp: temperature,
+      };
+
+
+      res.status(200).json(responseObject);
+    });
+  } catch (error) {
+    console.error('Error fetching sensor data:', error);
+    res.status(500).json({ message: 'Internal Server Error', error: error.message });
+  }
+};
+
+
 module.exports = {
   getDefaultLicensePlate,
   getLicensePlateByIndex,
   getLatestLicensePlate,
+  getSensorData,
 };

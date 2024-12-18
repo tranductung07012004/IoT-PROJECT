@@ -13,6 +13,7 @@ const activityLogRouter = require('./routes/activityLogRouter');
 // connectDatabase();
 
 app.use(express.static(__dirname + '/public'));
+app.use(express.json());
 
 app.engine(
   'hbs',

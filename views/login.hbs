@@ -14,10 +14,12 @@
     <div class="mb-[1rem]">
       <label
         for="username"
+        
         class="block text-[1rem] font-medium mb-[0.5rem]"
       ><span class="text-[rgb(243,28,36)]">*</span> Tài khoản</label>
       <input
         type="text"
+        id="username"
         placeholder="Nhập email của bạn"
         class="w-full border border-gray-300 rounded-md p-[0.8rem] text-[1rem] focus:outline-none focus:ring-2 focus:ring-blue-400"
       />
@@ -27,10 +29,12 @@
     <div class="mb-[1rem]">
       <label
         for="password"
+        
         class="block text-[1rem] font-medium mb-[0.5rem]"
       ><span class="text-[rgb(243,28,36)]">*</span> Mật khẩu</label>
       <input
         type="password"
+        id = "password"
         placeholder="Nhập mật khẩu"
         class="w-full border border-gray-300 rounded-md p-[0.8rem] text-[1rem] focus:outline-none focus:ring-2 focus:ring-blue-400"
       />
@@ -43,16 +47,13 @@
     <!-- Nút đăng ký và đăng nhập -->
     <div class="flex justify-between mt-[1.5rem]">
       <a href="/register" class="block">
-        <button
-          class="register-button bg-[rgb(43,39,154)] text-white text-[1rem] font-medium py-[0.8rem] px-[2rem] rounded-md hover:bg-gray-500"
-        >Đăng ký</button>
+        <button class="register-button bg-[rgb(43,39,154)] text-white text-[1rem] font-medium py-[0.8rem] px-[2rem] rounded-md hover:bg-gray-500">Đăng ký</button>
       </a>
-      <a href="/controlPanel" class="block">
-        <button
-          class="login-button bg-[rgb(230,184,74)] text-white text-[1rem] font-medium py-[0.8rem] px-[2rem] rounded-md hover:bg-gray-500"
-        >Đăng nhập</button>
-      </a>
+
+      <button id="login-btn" class="login-button bg-[rgb(230,184,74)] text-white text-[1rem] font-medium py-[0.8rem] px-[2rem] rounded-md hover:bg-gray-500">Đăng nhập</button>
 
     </div>
   </div>
 </div>
+
+<script src="./js/login.js"></script>

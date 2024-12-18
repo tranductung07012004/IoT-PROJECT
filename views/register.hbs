@@ -18,20 +18,22 @@
       ><span class="text-[rgb(243,28,36)]">*</span> Tài khoản</label>
       <input
         type="text"
+        id="username"
         placeholder="Nhập email của bạn"
         class="w-full border border-gray-300 rounded-md p-[0.8rem] text-[1rem] focus:outline-none focus:ring-2 focus:ring-blue-400"
       />
     </div>
 
-    <!-- Form nhập admin code -->
+    <!-- Form tài khoản -->
     <div class="mb-[1rem]">
       <label
-        for="username"
+        for="name"
         class="block text-[1rem] font-medium mb-[0.5rem]"
-      ><span class="text-[rgb(243,28,36)]">*</span>Admin code</label>
+      ><span class="text-[rgb(243,28,36)]">*</span>Họ và Tên</label>
       <input
         type="text"
-        placeholder="Code đăng ký"
+        id="name"
+        placeholder="Nhập họ và tên của bạn"
         class="w-full border border-gray-300 rounded-md p-[0.8rem] text-[1rem] focus:outline-none focus:ring-2 focus:ring-blue-400"
       />
     </div>
@@ -44,6 +46,7 @@
       ><span class="text-[rgb(243,28,36)]">*</span> Mật khẩu</label>
       <input
         type="password"
+        id="password"
         placeholder="Nhập mật khẩu"
         class="w-full border border-gray-300 rounded-md p-[0.8rem] text-[1rem] focus:outline-none focus:ring-2 focus:ring-blue-400"
       />
@@ -57,6 +60,7 @@
       ><span class="text-[rgb(243,28,36)]">*</span>Xác nhận mật khẩu</label>
       <input
         type="password"
+        id="confirm_password"
         placeholder="Nhập lại mật khẩu ở trên"
         class="w-full border border-gray-300 rounded-md p-[0.8rem] text-[1rem] focus:outline-none focus:ring-2 focus:ring-blue-400"
       />
@@ -71,6 +75,7 @@
       </a>
       <a href="/" class="block">
         <button
+          id="register-btn"
           class="bg-[rgb(230,184,74)] text-white text-[1rem] font-medium py-[0.8rem] px-[2rem] rounded-md hover:bg-gray-500"
         >Đăng ký</button>
       </a>
@@ -79,3 +84,5 @@
 
   </div>
 </div>
+
+<script src="./js/register.js"></script>
