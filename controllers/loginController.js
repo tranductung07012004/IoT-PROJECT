@@ -28,8 +28,6 @@ const loginControl = async (req, res) => {
       // Lấy key và dữ liệu của user
       const userKey = Object.keys(snapshot.val())[0];
       const userData = snapshot.val()[userKey];
-      console.log(userKey);
-      console.log(userData);
 
       // Kiểm tra mật khẩu
       if (userData.password !== password) {

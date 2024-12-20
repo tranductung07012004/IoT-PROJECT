@@ -1,233 +1,4 @@
-// (async function () {
-//   const photoresistorChartElement = document.getElementById('photoresistor-chart');
-//   let photoresistorChart;
 
-//   async function fetchData() {
-//     try {
-//       // Gửi yêu cầu lấy dữ liệu từ API
-//       const response = await fetch('/api/data'); // Đảm bảo URL phù hợp với endpoint trả về dữ liệu
-//       const rawData = await response.json();
-//       //console.log(data.photoresistor);
-//       const data = rawData.photoresistor;
-
-//       // Kiểm tra định dạng dữ liệu
-//       if (data && Array.isArray(data)) {
-//         const labels = data.map(item => item.timestamp); // Lấy thời gian (HH:MM)
-//         const values = data.map(item => item.value); // Lấy giá trị của photoresistor
-
-//         // Cập nhật biểu đồ nếu đã được khởi tạo
-//         if (photoresistorChart) {
-//           photoresistorChart.data.labels = labels;
-//           photoresistorChart.data.datasets[0].data = values;
-//           photoresistorChart.update();
-//         } else {
-//           // Khởi tạo biểu đồ nếu chưa tồn tại
-//           photoresistorChart = new Chart(photoresistorChartElement, {
-//             type: 'line',
-//             data: {
-//               labels: labels,
-//               datasets: [
-//                 {
-//                   label: 'Photoresistor Values Over Time',
-//                   data: values,
-//                   fill: false,
-//                   borderColor: 'rgba(75, 192, 192, 1)',
-//                   tension: 0.1,
-//                 },
-//               ],
-//             },
-//             options: {
-//               responsive: true,
-//               plugins: {
-//                 legend: {
-//                   display: true,
-//                 },
-//               },
-//               scales: {
-//                 x: {
-//                   title: {
-//                     display: true,
-//                     text: 'Time (HH:MM)',
-//                   },
-//                 },
-//                 y: {
-//                   title: {
-//                     display: true,
-//                     text: 'Photoresistor Value',
-//                   },
-//                 },
-//               },
-//             },
-//           });
-//         }
-//       } else {
-//         console.error('Invalid data format for photoresistor');
-//       }
-//     } catch (error) {
-//       console.error('Error fetching photoresistor data:', error);
-//     }
-//   }
-
-//   // Gọi hàm để cập nhật dữ liệu mỗi 5 giây
-//   setInterval(fetchData, 4000);
-
-//   // Tải dữ liệu ban đầu
-//   await fetchData();
-// })();
-
-// (async function () {
-//   const gasSensorChartElement = document.getElementById('gasSensor-chart');
-//   let gasSensorChart;
-
-//   async function fetchData() {
-//     try {
-//       // Gửi yêu cầu lấy dữ liệu từ API
-//       const response = await fetch('/api/data'); // Đảm bảo URL phù hợp với endpoint trả về dữ liệu
-//       const rawData = await response.json();
-//       //console.log(data.photoresistor);
-//       const data = rawData.gasSensor;
-
-//       // Kiểm tra định dạng dữ liệu
-//       if (data && Array.isArray(data)) {
-//         const labels = data.map(item => item.timestamp); // Lấy thời gian (HH:MM)
-//         const values = data.map(item => item.value); // Lấy giá trị của photoresistor
-
-//         // Cập nhật biểu đồ nếu đã được khởi tạo
-//         if (gasSensorChart) {
-//           gasSensorChart.data.labels = labels;
-//           gasSensorChart.data.datasets[0].data = values;
-//           gasSensorChart.update();
-//         } else {
-//           // Khởi tạo biểu đồ nếu chưa tồn tại
-//           gasSensorChart = new Chart(gasSensorChartElement, {
-//             type: 'line',
-//             data: {
-//               labels: labels,
-//               datasets: [
-//                 {
-//                   label: 'Gas sensor Values Over Time',
-//                   data: values,
-//                   fill: false,
-//                   borderColor: 'rgba(75, 192, 192, 1)',
-//                   tension: 0.1,
-//                 },
-//               ],
-//             },
-//             options: {
-//               responsive: true,
-//               plugins: {
-//                 legend: {
-//                   display: true,
-//                 },
-//               },
-//               scales: {
-//                 x: {
-//                   title: {
-//                     display: true,
-//                     text: 'Time (HH:MM)',
-//                   },
-//                 },
-//                 y: {
-//                   title: {
-//                     display: true,
-//                     text: 'gas sensor value',
-//                   },
-//                 },
-//               },
-//             },
-//           });
-//         }
-//       } else {
-//         console.error('Invalid data format for gas sensor');
-//       }
-//     } catch (error) {
-//       console.error('Error fetching gas sensor data:', error);
-//     }
-//   }
-
-//   // Gọi hàm để cập nhật dữ liệu mỗi 5 giây
-//   setInterval(fetchData, 4000);
-
-//   // Tải dữ liệu ban đầu
-//   await fetchData();
-// })();
-
-// (async function () {
-//   const vibrationSensorChartElement = document.getElementById('vibration-chart');
-//   let vibrationSensorChart;
-
-//   async function fetchData() {
-//     try {
-//       // Gửi yêu cầu lấy dữ liệu từ API
-//       const response = await fetch('/api/data'); // Đảm bảo URL phù hợp với endpoint trả về dữ liệu
-//       const rawData = await response.json();
-//       //console.log(data.photoresistor);
-//       const data = rawData.vibrationSensor;
-
-//       // Kiểm tra định dạng dữ liệu
-//       if (data && Array.isArray(data)) {
-//         const labels = data.map(item => item.timestamp); // Lấy thời gian (HH:MM)
-//         const values = data.map(item => item.value); // Lấy giá trị của photoresistor
-
-//         // Cập nhật biểu đồ nếu đã được khởi tạo
-//         if (vibrationSensorChart) {
-//           vibrationSensorChart.data.labels = labels;
-//           vibrationSensorChart.data.datasets[0].data = values;
-//           vibrationSensorChart.update();
-//         } else {
-//           // Khởi tạo biểu đồ nếu chưa tồn tại
-//           vibrationSensorChart = new Chart(vibrationSensorChartElement, {
-//             type: 'line',
-//             data: {
-//               labels: labels,
-//               datasets: [
-//                 {
-//                   label: 'Vibration Values Over Time',
-//                   data: values,
-//                   fill: false,
-//                   borderColor: 'rgba(75, 192, 192, 1)',
-//                   tension: 0.1,
-//                 },
-//               ],
-//             },
-//             options: {
-//               responsive: true,
-//               plugins: {
-//                 legend: {
-//                   display: true,
-//                 },
-//               },
-//               scales: {
-//                 x: {
-//                   title: {
-//                     display: true,
-//                     text: 'Time (HH:MM)',
-//                   },
-//                 },
-//                 y: {
-//                   title: {
-//                     display: true,
-//                     text: 'vibration sensor value',
-//                   },
-//                 },
-//               },
-//             },
-//           });
-//         }
-//       } else {
-//         console.error('Invalid data format for vibration sensor');
-//       }
-//     } catch (error) {
-//       console.error('Error fetching vibration sensor data:', error);
-//     }
-//   }
-
-//   // Gọi hàm để cập nhật dữ liệu mỗi 5 giây
-//   setInterval(fetchData, 4000);
-
-//   // Tải dữ liệu ban đầu
-//   await fetchData();
-// })();
 
 // Lấy các thành phần DOM của vehicle out
 const leftArrowOut = document.getElementById('left-arrow-out');
@@ -258,11 +29,11 @@ async function fetchDataAtVehicle(vehicleImage, licensePlate, time, vehicleId, n
     
     const data = await response.json();
 
-    if (data && data.image_url && data.license && data.time && data.index) {
+    if (data && data.image_url && data.plate_number && data.timestamp && data.index) {
       // Cập nhật giao diện với dữ liệu mới
       vehicleImage.src = data.image_url;
-      licensePlate.textContent = `License plate: ${data.license}`;
-      time.textContent = `Time out: ${data.time}`;
+      licensePlate.textContent = `License plate: ${data.plate_number}`;
+      time.textContent = `Time: ${data.timestamp}`;
       vehicleId.textContent = `ID: ${data.index}`;
       vehicleId.dataset.index = data.index; // Cập nhật giá trị index trong DOM
     } 
@@ -366,11 +137,11 @@ async function fetchDataIntervalAtVehicle(vehicleImage, licensePlate, time, vehi
     
     const data = await response.json();
 
-    if (data && data.image_url && data.license && data.time && data.index) {
+    if (data && data.image_url && data.plate_number && data.timestamp && data.index) {
       // Cập nhật giao diện với dữ liệu mới
       vehicleImage.src = data.image_url;
-      licensePlate.textContent = `License plate: ${data.license}`;
-      time.textContent = `Time out: ${data.time}`;
+      licensePlate.textContent = `License plate: ${data.plate_number}`;
+      time.textContent = `Time: ${data.timestamp}`;
       vehicleId.textContent = `ID: ${data.index}`;
       vehicleId.dataset.index = data.index; // Cập nhật giá trị index trong DOM
     } 

@@ -10,13 +10,18 @@
   "author": "tdtung",
   "license": "ISC",
   "dependencies": {
+    "axios": "^1.7.9",
+    "body-parser": "^1.20.3",
     "chart.js": "^4.4.6",
+    "emailjs-com": "^3.2.0",
     "express": "^4.21.1",
     "express-handlebars": "^8.0.1",
     "firebase": "^11.0.2",
     "firebase-admin": "^13.0.1",
     "gauge-chart": "^0.5.3",
-    "mongoose": "^8.8.3"
+    "mongoose": "^8.8.3",
+    "nodemailer": "^6.9.16",
+    "xhr2": "^0.2.1"
   },
   "devDependencies": {
     "tailwindcss": "^3.4.15"

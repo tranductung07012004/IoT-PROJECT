@@ -44,20 +44,30 @@
 </div>
 
 
-<!-- Hàng thứ hai chứa các panel con gồm bật tắt led, light, buzzer -->
+<!-- Hàng thứ hai chứa các panel con gồm bật tắt servo, light, buzzer -->
   <div class="second-row mt-[1rem] flex flex-row w-[90%]">
-  <div class="led flex-1 w-full h-[7rem] bg-[rgb(202,212,198)] mx-[0.5rem]">
+
+  {{!-- <div class="led flex-1 w-full h-[7rem] bg-[rgb(202,212,198)] mx-[0.5rem]">
     <div class="title mt-[0.5rem] font-[600] text-center">
-      <span>Led</span>
+      <span>Servo</span>
     </div>
 
-    <div class="controll-btn mt-[0.5rem] flex flex-row justify-center">
-      <button class="bg-[rgb(149,131,131)] text-white text-[1rem] font-medium py-[0.8rem] px-[2rem] rounded-md hover:bg-gray-500">On</button>
-      <button class="bg-[rgb(63,52,52)] ml-[2rem] text-white text-[1rem] font-medium py-[0.8rem] px-[2rem] rounded-md hover:bg-gray-500">Off</button>
+    <div class="controll-btn mt-[0.5rem] flex flex-row justify-center items-center">
+      <span id="info">Cổng ra</span>
+      <img src="./img/dropdown.svg" alt="Logo menu" class="ml-[1rem] w-[2rem] h-[3rem] cursor-pointer" id="dropDownIcon">
+  
+    <div class="menu hidden absolute top-[24rem] left-[8rem] bg-white shadow-lg rounded-md p-4" id="option">
+      <ul class="space-y-2">
+        <li class="cursor-pointer" data-option="Cổng vào">Cổng vào</li>
+        <li class="cursor-pointer" data-option="Cổng ra">Cổng ra</li>
+      </ul>
+    </div>
+      <button id="btn-on-servo" class="bg-[rgb(149,131,131)] text-white text-[1rem] font-medium py-[0.8rem] px-[2rem] rounded-md hover:bg-gray-500">On</button>
+      <button id="btn-off-servo" class="bg-[rgb(63,52,52)] ml-[2rem] text-white text-[1rem] font-medium py-[0.8rem] px-[2rem] rounded-md hover:bg-gray-500">Off</button>
+      <img id="block-servo" src="./img/auto-loading.svg" alt="Logo menu" class="ml-[1rem] w-[2rem] h-[3rem] cursor-pointer" >
     </div>
     
-
-  </div>
+  </div> --}}
 
   <div class="light flex-1 w-full h-[7rem] bg-[rgb(202,212,198)] mx-[0.5rem]">
     <div class="title mt-[0.5rem] font-[600] text-center">
@@ -65,8 +75,9 @@
     </div>
 
     <div class="controll-btn mt-[0.5rem] flex flex-row justify-center">
-      <button class="bg-[rgb(149,131,131)] text-white text-[1rem] font-medium py-[0.8rem] px-[2rem] rounded-md hover:bg-gray-500">On</button>
-      <button class="bg-[rgb(63,52,52)] ml-[2rem] text-white text-[1rem] font-medium py-[0.8rem] px-[2rem] rounded-md hover:bg-gray-500">Off</button>
+      <button id="light-on" class="bg-[rgb(149,131,131)] text-white text-[1rem] font-medium py-[0.8rem] px-[2rem] rounded-md hover:bg-gray-500">On</button>
+      <button id="light-off" class="bg-[rgb(63,52,52)] ml-[2rem] text-white text-[1rem] font-medium py-[0.8rem] px-[2rem] rounded-md hover:bg-gray-500">Off</button>
+      <button id="block-light" class="bg-[rgb(63,52,52)] ml-[2rem] text-white text-[1rem] font-medium py-[0.8rem] px-[2rem] rounded-md hover:bg-gray-500">Unblock</button>
     </div>
 
   </div>
@@ -77,8 +88,10 @@
     </div>
 
     <div class="controll-btn mt-[0.5rem] flex flex-row justify-center">
-      <button class="bg-[rgb(149,131,131)] text-white text-[1rem] font-medium py-[0.8rem] px-[2rem] rounded-md hover:bg-gray-500">On</button>
-      <button class="bg-[rgb(63,52,52)] ml-[2rem] text-white text-[1rem] font-medium py-[0.8rem] px-[2rem] rounded-md hover:bg-gray-500">Off</button>
+      
+      <button id="buzzer-on" class="bg-[rgb(149,131,131)] text-white text-[1rem] font-medium py-[0.8rem] px-[2rem] rounded-md hover:bg-gray-500">On</button>
+      <button id="buzzer-off" class="bg-[rgb(63,52,52)] ml-[2rem] text-white text-[1rem] font-medium py-[0.8rem] px-[2rem] rounded-md hover:bg-gray-500">Off</button>
+      <button id="block-buzzer" class="bg-[rgb(63,52,52)] ml-[2rem] text-white text-[1rem] font-medium py-[0.8rem] px-[2rem] rounded-md hover:bg-gray-500">Unblock</button>
     </div>
   </div>
 
@@ -104,7 +117,7 @@
       <img class="w-[12rem] h-[10rem]" id="vehicle-image-in" src="{{image_url}}" alt="Biển số xe">
       <div class="information flex flex-col">
         <span class=" ml-[0.5rem]" id="license-plate-in">License plate: {{license}}</span>
-        <span class=" ml-[0.5rem]" id="time-in">Time in: {{formatDate time}}</span>
+        <span class=" ml-[0.5rem]" id="time-in">Time: {{formatDate time}}</span>
         <span class=" ml-[0.5rem]" id="vehicle-id-in" data-index="{{index}}">ID: {{index}}</span>
       </div>
   </div>
@@ -125,7 +138,7 @@
     <img class="w-[12rem] h-[10rem]" id="vehicle-image-out" src="{{image_url}}" alt="Biển số xe">
     <div class="information flex flex-col">
       <span class="ml-[0.5rem]" id="license-plate-out">License plate: {{license}}</span>
-      <span class="ml-[0.5rem]" id="time-out">Time out: {{formatDate time}}</span>
+      <span class="ml-[0.5rem]" id="time-out">Time: {{formatDate time}}</span>
       <span class="ml-[0.5rem]" id="vehicle-id-out" data-index="{{index}}">ID: {{index}}</span>
     </div>
   </div>
@@ -142,3 +155,4 @@
 
   <script src="./js/vehicle.js"></script>
   <script src="./js/sensor.js"></script>
+  <script type='module' src="./js/controlPanel.js"></script>

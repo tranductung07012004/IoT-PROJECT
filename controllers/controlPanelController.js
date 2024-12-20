@@ -25,9 +25,9 @@ const getDefaultLicensePlate = async (req, res) => {
     // Chuyển dữ liệu từ Firebase thành array object
     const records = Object.keys(data).map((key) => ({ id: key, ...data[key] }));
 
-    // Lọc các bản ghi có `in_out = true`
-    const vehicle_in = records.filter((record) => record.in_out === true);
-    const vehicle_out = records.filter((record) => record.in_out === false);
+    // Lọc các bản ghi có `direction = true`
+    const vehicle_in = records.filter((record) => record.direction === true);
+    const vehicle_out = records.filter((record) => record.direction === false);
 
     if (vehicle_in.length === 0) {
       return res.render('controlPanel', {
@@ -96,7 +96,7 @@ const getLicensePlateByIndex = async (req, res) => {
     const targetIndex = parseInt(index);
     const prevOrNext = arrow === '1'; // Kiểm tra nếu là 1 thì là next, nếu là 0 thì previous
 
-    const filteredRecords = records.filter(record => record.in_out === isInOutTrue); // Lọc ra vehicle out hoặc vehicle in dựa vào isInOutTrue
+    const filteredRecords = records.filter(record => record.direction === isInOutTrue); // Lọc ra vehicle out hoặc vehicle in dựa vào isInOutTrue
     //console.log(filteredRecords);
     // console.log(targetIndex);
     // Xử lý logic theo in_out
@@ -164,7 +164,7 @@ const getLatestLicensePlate = async (req, res) => {
     const records = Object.values(data);
 
     // Lọc các bản ghi có `in_out = true`
-    let vehicle = records.filter((record) => record.in_out === isInOutTrue);
+    let vehicle = records.filter((record) => record.direction === isInOutTrue);
    
 
     if (vehicle.length === 0) {
@@ -190,6 +190,15 @@ const getLatestLicensePlate = async (req, res) => {
   }
 };
 
+function formatUnixToTime(unixTime) {
+  const date = new Date(unixTime * 1000); // Nhân với 1000 để chuyển từ giây sang mili giây
+  return date.toLocaleTimeString('en-GB', { 
+    hour: '2-digit', 
+    minute: '2-digit', 
+    second: '2-digit', 
+    hour12: false // Định dạng 24 giờ
+  });
+}
 const getSensorData = async (req, res) => {
   try {
     const db = admin.database();
@@ -215,19 +224,19 @@ const getSensorData = async (req, res) => {
 
       // Mảng con 1: chỉ chứa `time` và `light`
       const lightArray = latestRecords.map(({ time, light }) => ({
-        time,
+        time: formatUnixToTime(time),
         light,
       }));
 
       // Mảng con 2: chỉ chứa `time` và `mq2`
       const mq2Array = latestRecords.map(({ time, mq2 }) => ({
-        time,
+        time: formatUnixToTime(time),
         mq2,
       }));
 
       // Mảng con 3: chỉ chứa `time` và `vibration`
       const vibrationArray = latestRecords.map(({ time, vibration }) => ({
-        time,
+        time: formatUnixToTime(time),
         vibration,
       }));
 

@@ -45,11 +45,11 @@ app.set('view engine', 'hbs');
 
 
 // Khởi tạo firebase - admin
-const serviceAccount = require('./services/iot-project-383ff-firebase-adminsdk-vgmgx-be083cd490.json'); // Thay bằng đường dẫn đến file key
+const serviceAccount = require('./services/project-iot-539e3-firebase-adminsdk-ri5j2-d4ecf61dcc.json'); // Thay bằng đường dẫn đến file key
 
 admin.initializeApp({
   credential: admin.credential.cert(serviceAccount),
-  databaseURL: 'https://iot-project-383ff-default-rtdb.asia-southeast1.firebasedatabase.app/', // Thay bằng URL cơ sở dữ liệu Firebase của bạn
+  databaseURL: 'https://project-iot-539e3-default-rtdb.asia-southeast1.firebasedatabase.app/', // Thay bằng URL cơ sở dữ liệu Firebase của bạn
 });
 
 
