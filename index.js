@@ -22,22 +22,6 @@ app.engine(
     partialsDir: __dirname + "/views/partials",
     extname: 'hbs',
     defaultLayout: 'layout',
-    helpers: {
-      formatDate: function (isoDate) {
-        const date = new Date(isoDate);
-
-        // Lấy các phần của ngày giờ
-        const hours = String(date.getHours()).padStart(2, '0');
-        const minutes = String(date.getMinutes()).padStart(2, '0');
-        const seconds = String(date.getSeconds()).padStart(2, '0');
-        const day = String(date.getDate()).padStart(2, '0');
-        const month = String(date.getMonth() + 1).padStart(2, '0'); // tháng bắt đầu từ 0
-        const year = date.getFullYear();
-
-        // Trả về thời gian định dạng HH:mm:ss dd/MM/yyyy
-        return `${hours}:${minutes}:${seconds} ${day}/${month}/${year}`;
-      }
-    }
   })
 );
 
