@@ -53,7 +53,7 @@ document.getElementById('light-on').addEventListener('click', function () {
     });
   }
   else {
-    alert('Light đã được unlock để tự hoạt động');
+    alert('Light đã được unlock để tự hoạt động, vui lòng block lại để có thể bật tắt');
   }
 });
 
@@ -72,14 +72,14 @@ document.getElementById('light-off').addEventListener('click', function () {
       alert("Lỗi khi gửi dữ liệu tại light off:", error);
     });
   } else {
-    alert('Light đã được unlock để tự hoạt động');
+    alert('Light đã được unlock để tự hoạt động, vui lòng block lại để có thể bật tắt');
   }
 });
 
 document.getElementById('block-light').addEventListener('click', function () {
   console.log(`Bạn đã chọn nhấn nút block light auto`);
   if (isBlockLight === true) {
-    document.getElementById('block-light').textContent = "Unblock";
+    document.getElementById('block-light').textContent = "Block";
     isBlockLight = false;
     stateLight = '0';
     controlData = stateLight + stateBuzzer;
@@ -94,7 +94,7 @@ document.getElementById('block-light').addEventListener('click', function () {
     });
   }
   else {
-    document.getElementById('block-light').textContent = "Block";
+    document.getElementById('block-light').textContent = "Unblock";
     isBlockLight = true;
     stateLight = '2';
     controlData = stateLight + stateBuzzer;
@@ -130,7 +130,7 @@ document.getElementById('buzzer-on').addEventListener('click', function () {
     });
   }
   else {
-    alert('Buzzer đang được unlock để tự hoạt động');
+    alert('Buzzer đang được unlock để tự hoạt động, vui lòng block lại để có thể bật tắt');
   }
 });
 
@@ -154,7 +154,7 @@ document.getElementById('buzzer-off').addEventListener('click', function () {
     });
   }
   else {
-    alert('Buzzer đang được unlock để tự hoạt động');
+    alert('Buzzer đang được unlock để tự hoạt động, vui lòng block lại để có thể bật tắt');
   }
 });
 
@@ -162,7 +162,7 @@ document.getElementById('block-buzzer').addEventListener('click', function () {
   console.log(`Bạn đã chọn nhấn nút block buzzer auto`);
 
   if (isBlockBuzzer === true) {
-    document.getElementById('block-buzzer').textContent = "Unblock";
+    document.getElementById('block-buzzer').textContent = "Block";
     isBlockBuzzer = false;
     stateBuzzer = '0';
     controlData = stateLight + stateBuzzer;
@@ -175,7 +175,7 @@ document.getElementById('block-buzzer').addEventListener('click', function () {
     });
   }
   else {
-    document.getElementById('block-buzzer').textContent = "Block";
+    document.getElementById('block-buzzer').textContent = "Unblock";
     isBlockBuzzer = true;
     stateBuzzer = '2';
     controlData = stateLight + stateBuzzer;

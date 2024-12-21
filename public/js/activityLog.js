@@ -101,10 +101,10 @@ onChildAdded(activityLogRef, (snapshot) => {
   if (humid > 80) {
     action += `High humidity: ${humid}% \n `;
   }
-  if (mq2 > 2000) {
+  if (mq2 > 400) {
     action += `Smoke detected! \n`;
   }
-  if (temp >= 40) {
+  if (temp > 40) {
     action += `High temperature: ${temp} C \n `;
   } 
   if (vibration > 2000) {
