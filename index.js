@@ -29,7 +29,7 @@ app.set('view engine', 'hbs');
 
 
 // Khởi tạo firebase - admin
-const serviceAccount = require('./services/project-iot-539e3-firebase-adminsdk-ri5j2-d4ecf61dcc.json'); // Thay bằng đường dẫn đến file key
+const serviceAccount = require('./services/project-iot-539e3-firebase-adminsdk-ri5j2-f4088fa085.json'); // Thay bằng đường dẫn đến file key
 
 admin.initializeApp({
   credential: admin.credential.cert(serviceAccount),
